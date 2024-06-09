@@ -13,9 +13,8 @@ public class item : MonoBehaviour
     public Image checkpanel;
     public RawImage substance;
     public float fadeSpeed = 1f;
-    public TextMeshProUGUI textmeshpro_objective_text;
-    public TextMeshProUGUI  textmeshpro_objective_text1;
-    public TextMeshProUGUI textmeshpro_objective_text2;
+    public TextMeshProUGUI checkmatterytext;
+    public TextMeshProUGUI  allitemstext;
     private bool isFading = false;
     private int pickedItemsCount = 0;
     Audiomanager audiomanager;
@@ -37,20 +36,18 @@ public class item : MonoBehaviour
         float alphaPanel = Mathf.MoveTowards(checkpanel.color.a, 0, fadeSpeed * Time.deltaTime);
         checkpanel.color = new Color(checkpanel.color.r, checkpanel.color.g, checkpanel.color.b, alphaPanel);
 
-        float alphaText = Mathf.MoveTowards(textmeshpro_objective_text.color.a, 0, fadeSpeed * Time.deltaTime);
-        textmeshpro_objective_text.color = new Color(textmeshpro_objective_text.color.r, textmeshpro_objective_text.color.g, textmeshpro_objective_text.color.b, alphaText);
+        float alphaText = Mathf.MoveTowards(checkmatterytext.color.a, 0, fadeSpeed * Time.deltaTime);
+        checkmatterytext.color = new Color(checkmatterytext.color.r, checkmatterytext.color.g, checkmatterytext.color.b, alphaText);
 
-        float alphaText1 = Mathf.MoveTowards(textmeshpro_objective_text1.color.a, 0, fadeSpeed * Time.deltaTime);
-        textmeshpro_objective_text1.color = new Color(textmeshpro_objective_text1.color.r, textmeshpro_objective_text1.color.g, textmeshpro_objective_text1.color.b, alphaText);
+        float alphaText1 = Mathf.MoveTowards(allitemstext.color.a, 0, fadeSpeed * Time.deltaTime);
+        allitemstext.color = new Color(allitemstext.color.r, allitemstext.color.g, allitemstext.color.b, alphaText);
 
-        float alphaText2 = Mathf.MoveTowards(textmeshpro_objective_text2.color.a, 0, fadeSpeed * Time.deltaTime);
-        textmeshpro_objective_text2.color = new Color(textmeshpro_objective_text2.color.r, textmeshpro_objective_text2.color.g, textmeshpro_objective_text2.color.b, alphaText);
-
+        
 
         float alphaSubstance = Mathf.MoveTowards(substance.color.a, 0, fadeSpeed * Time.deltaTime);
         substance.color = new Color(substance.color.r, substance.color.g, substance.color.b, alphaSubstance);
 
-        if (alphaPanel <= 0f && alphaText <= 0f && alphaSubstance <= 0f && alphaText1 <= 0f && alphaText2 <= 0f)
+        if (alphaPanel <= 0f && alphaText <= 0f && alphaSubstance <= 0f && alphaText1 <= 0f)
         {
             isFading = false;
         }
@@ -130,14 +127,14 @@ public class item : MonoBehaviour
         int totalItemsWithTagItem2 = GameObject.FindGameObjectsWithTag("item2").Length;
 
         int totalItems = totalItemsWithTagItem + totalItemsWithTagItem1 + totalItemsWithTagItem2;
-        textmeshpro_objective_text1.text = "/" + totalItems.ToString();
+        allitemstext.text = "/" + totalItems.ToString();
     }
     void UpdateObjectiveText()
     {
-        
 
 
-        textmeshpro_objective_text.text = pickedItemsCount.ToString(); 
+
+        checkmatterytext.text = pickedItemsCount.ToString(); 
 
 
 

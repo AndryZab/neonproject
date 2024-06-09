@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Cinemachine;
+using NUnit.Framework;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Animations;
@@ -20,12 +21,23 @@ public class controllerlaser : MonoBehaviour
     public GameObject arrowsoff;
     public float transitionDuration = 1f;
     public RotationConstraint[] controller;
+    public GameObject WeaponOn;
+    public GameObject WeaponOff;
+    public GameObject obj;
+    public GameObject objlaser;
+    public controllerlaser mainscriptoff;
+
 
     public Vector2 newbackgroundpos;
     public Vector2 newcamerapos;
     public Vector2 newbackgroundscale;
     public float newcamerascale;
-    
+    private BoxCollider2D colider;
+
+    private void Awake()
+    {
+        colider = GetComponent<BoxCollider2D>();
+    }
     void Update()
     {
         if (objectToFollow != null)
@@ -65,13 +77,28 @@ public class controllerlaser : MonoBehaviour
     }
     private IEnumerator transitduration()
     {
-        yield return new WaitForSeconds(1f);
-        background.localScale = new Vector2(1, 1);
-        arrowsoff.SetActive(true);
-        scriptoff.enabled = true;
+        colider.enabled = false;
         touchscript.enabled = false;
-        virtualCamera.enabled = true;
         buttonforactivate.SetActive(true);
+        WeaponOn.SetActive(false);
+        WeaponOff.SetActive(true);
+        if (obj != null)
+        {
+           obj.SetActive(true);
+
+        }
+        if (objlaser != null)
+        {
+            objlaser.SetActive(false);
+        }
+
+        yield return new WaitForSeconds(1.5f);
+        background.localScale = new Vector2(1, 1);
+        scriptoff.enabled = true;
+        virtualCamera.enabled = true;
+        arrowsoff.SetActive(true);
+        mainscriptoff.enabled = false;
+
     }
     private void complete()
     {
@@ -80,6 +107,7 @@ public class controllerlaser : MonoBehaviour
             controller[0].enabled = true;
             controller[1].enabled = true;
             StartCoroutine(transitduration());
+            Debug.Log("succes");
         }
     }
 

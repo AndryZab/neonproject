@@ -28,14 +28,7 @@ public class SoundLaser : MonoBehaviour
     private void Awake()
     {
         player = GetComponent<Player>();
-        if (sharedAudioSource == null)
-        {
-            Debug.LogError("SharedAudioSource is not assigned.");
-        }
-        if (playerTransform == null)
-        {
-            Debug.LogError("PlayerTransform is not assigned.");
-        }
+     
     }
 
     void Update()

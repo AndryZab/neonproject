@@ -56,11 +56,9 @@ public class laserhit : MonoBehaviour
                 {
                     playerHit = false;
                 }
-                Debug.Log("Laser hit the player!");
             }
-            if (hit.collider.CompareTag("buttonlasser") && !playerHit)
+            if (hit.collider.CompareTag("buttonlasser"))
             {
-                playerHit = true;
                 if (laserbutonON != null)
                 {
                     laserbutonON.SetActive(false);
@@ -97,7 +95,6 @@ public class laserhit : MonoBehaviour
                     shieldsound.Pause();
                 }
             }
-            Debug.Log(OnDisolve);
         }
 
         Draw2DRay(laserfirepoint.position, hit.point != null ? hit.point : (Vector2)laserfirepoint.transform.right * DefDistanceRay);

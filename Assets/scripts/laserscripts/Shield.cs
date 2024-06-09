@@ -46,7 +46,6 @@ public class Shield : MonoBehaviour
                     StopCoroutine(disableCoroutine);
                     disableCoroutine = null;
                 }
-                Debug.Log("StopSucces");
             }
         }
     }
