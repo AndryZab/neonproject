@@ -33,13 +33,8 @@ public class SoundLaser : MonoBehaviour
 
     void Update()
     {
-        if (Time.timeScale == 0 || player.rb.bodyType == RigidbodyType2D.Static)
-        {
-            PauseEffectLaser();
-        }
-        else
-        {
-            PlayEffectLaser();
+      
+        
             float closestVolume = 0f;
 
             // Обчислення для LineRenderer
@@ -98,24 +93,9 @@ public class SoundLaser : MonoBehaviour
             {
                 sharedAudioSource.volume = closestVolume;
             }
-        }
+        
     }
 
-    private void PauseEffectLaser()
-    {
-        if (laser != null)
-        {
-            laser.Pause();
-        }
-    }
-
-    private void PlayEffectLaser()
-    {
-        if (laser != null)
-        {
-            laser.UnPause();
-        }
-    }
 
     private float DistanceToSegment(Vector3 point, Vector3 segmentStart, Vector3 segmentEnd)
     {

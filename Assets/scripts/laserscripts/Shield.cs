@@ -13,7 +13,22 @@ public class Shield : MonoBehaviour
     private float fadeTimer = 0f;
     private float disableTimer = 0f;
     private bool isPaused = false;
+    public GameObject objectWithMaterial;
 
+    private Material materialForLine;
+
+    private void Awake()
+    {
+        Renderer renderer = objectWithMaterial.GetComponent<Renderer>();
+
+        
+        if (renderer != null)
+        {
+            
+            materialForLine = renderer.material;
+        }
+       
+    }
     private void Update()
     {
         if (allowdisolve.OnDisolve)
@@ -66,7 +81,7 @@ public class Shield : MonoBehaviour
             fadeTimer += Time.deltaTime;
             float alpha = Mathf.Lerp(1.7f, 0.0f, fadeTimer / fadeDuration);
             material.SetFloat("Vector1_E974001A", alpha);
-            materialDisolveMove.SetFloat("Vector1_E974001A", alpha);
+            materialForLine.SetFloat("Vector1_E974001A", alpha);
             yield return null;
         }
 

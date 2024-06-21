@@ -17,24 +17,24 @@ public class MainMenu : MonoBehaviour
     public Collider2D colider;
 
     public ParticleTrail scripteffects;
-    public Player body;
+    private Player body;
 
     Audiomanager audiomanager;
+    AudioSource[] audioSources;
+
     private void Awake()
     {
-        if (body != null)
-        {
-
-          body = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        }
-        audiomanager = GameObject.FindGameObjectWithTag("audio").GetComponent<Audiomanager>();
-       
+        
+        body = FindAnyObjectByType<Player>();
+        
+        audiomanager = FindAnyObjectByType<Audiomanager>();
+        audioSources = FindObjectsOfType<AudioSource>();
     }
 
     public void RestartLevel()
     {
         Time.timeScale = 1;
-        if (!hasRestarted && body != null)
+        if (!hasRestarted && !hasMenu && body != null)
         {
             if (colider != null)
             {
@@ -67,26 +67,37 @@ public class MainMenu : MonoBehaviour
 
     public void Pause()
     {
-        audiomanager.musicsource.Pause();
-        audiomanager.musicsource.clip = audiomanager.background;
+        foreach (AudioSource audioSource in audioSources)
+        {
+            audioSource.Pause();
+            
+        }
         pausebutton.SetActive(false);
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
+        
     }
 
 
-   
+    public void resetdata()
+    {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+    }
     public void Back()
     {
         Time.timeScale = 1;
-        audiomanager.musicsource.clip = audiomanager.background;
-        audiomanager.musicsource.UnPause();
+        foreach (AudioSource audioSource in audioSources)
+        {
+            audioSource.UnPause();
+
+        }
         backgame.SetActive(false);
     }
     public void Mainmenu()
     {
         Time.timeScale = 1;
-        if (!hasMenu)
+        if (!hasMenu && !hasRestarted)
         {
             StartCoroutine(menu());
             hasMenu = true;

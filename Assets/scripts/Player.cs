@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public bool isJumping = false;
     public bool slide = false;
     public float horizontal;
-    private float speed = 10f;
+    public float speed = 10f;
     private float jumpingPower = 13f;
     private bool isFacingRight = true;
 

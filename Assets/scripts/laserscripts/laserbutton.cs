@@ -10,11 +10,16 @@ public class laserbutton : MonoBehaviour
     public GameObject buttonOn;
     public GameObject buttonOff;
     public GameObject particleeffect;
-
+    private Audiomanager audiomanager;
+    private void Awake()
+    {
+        audiomanager = FindAnyObjectByType<Audiomanager>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "Player")
         {
+            audiomanager.PlaySFX(audiomanager.buttonlaser);
             decorOn.SetActive(true);
             decorOFF.SetActive(false);
             laser.SetActive(false);

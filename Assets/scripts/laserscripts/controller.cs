@@ -34,8 +34,10 @@ public class controllerlaser : MonoBehaviour
     public float newcamerascale;
     private BoxCollider2D colider;
 
+    private Player player;
     private void Awake()
     {
+        player = FindAnyObjectByType<Player>();
         colider = GetComponent<BoxCollider2D>();
     }
     void Update()
@@ -63,6 +65,7 @@ public class controllerlaser : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            player.speed = 0;
             targetCamera.nearClipPlane = -30;
             StartCoroutine(TransitionBackgroundAndCamera());
             scriptoff.enabled = false;
@@ -91,7 +94,7 @@ public class controllerlaser : MonoBehaviour
         {
             objlaser.SetActive(false);
         }
-
+        player.speed = 10f;
         yield return new WaitForSeconds(1.5f);
         background.localScale = new Vector2(1, 1);
         scriptoff.enabled = true;
@@ -107,7 +110,6 @@ public class controllerlaser : MonoBehaviour
             controller[0].enabled = true;
             controller[1].enabled = true;
             StartCoroutine(transitduration());
-            Debug.Log("succes");
         }
     }
 

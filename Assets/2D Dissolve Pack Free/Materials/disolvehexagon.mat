@@ -58,15 +58,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Vector1_450D3E32: 3.7
-    - Vector1_BF7B720C: 5.3
-    - Vector1_E974001A: 2.11
+    - Vector1_450D3E32: 25
+    - Vector1_BF7B720C: 5.51
+    - Vector1_E974001A: 1.9
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ScaleNoies: 22.15
     - _Speed: 0.15
     m_Colors:
-    - Color_2ED9CBC6: {r: 89.454094, g: 0, b: 0.6916941, a: 0}
+    - Color_2ED9CBC6: {r: 118.035385, g: 0, b: 0.9126959, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &9211804013734659883
 MonoBehaviour:

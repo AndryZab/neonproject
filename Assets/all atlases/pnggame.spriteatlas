@@ -82,14 +82,16 @@ SpriteAtlas:
     - a40034b6d7dd97c4daea53094a49d133: 21300000
     - b128474795f45c94792fcfa75b8f34b4: 21300000
     - d281b5a821246f6448db442f992b483b: 21300000
+    - 9efc0ad94467cd548a159c2abc11cf56: 21300000
     - 2ec2231a439ecc840bd78fe689def7bc: 21300000
     - c8e9f66b241fbc24eb4375f10e8830a7: 21300000
     - 38323e5ce16e5bc429cbd53ba9d4ed2d: 21300000
     - 1814156c0fd31bc4fbb6dd82615533ab: 21300000
     - 98e680cc45325aa4b81583c2c64c8bd4: 21300000
-    - d8eb46cdabc272944ab6f00f893c5503: 21300000
+    - 737da20dc4e13d7449ccdfa638e6b563: 21300000
     - efea10ed322ec3d4e89e939a4e5df9ca: 21300000
     - 119a7f2e6f07d034aaec25adf9561897: 21300000
+    - 0d099f3fa399bcb43a05517d5336f873: 21300000
     - d12cadaf93c250148a1129d18c6cf83d: 21300000
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -99,14 +101,16 @@ SpriteAtlas:
   - {fileID: 21300000, guid: a40034b6d7dd97c4daea53094a49d133, type: 3}
   - {fileID: 21300000, guid: b128474795f45c94792fcfa75b8f34b4, type: 3}
   - {fileID: 21300000, guid: d281b5a821246f6448db442f992b483b, type: 3}
+  - {fileID: 21300000, guid: 9efc0ad94467cd548a159c2abc11cf56, type: 3}
   - {fileID: 21300000, guid: 2ec2231a439ecc840bd78fe689def7bc, type: 3}
   - {fileID: 21300000, guid: c8e9f66b241fbc24eb4375f10e8830a7, type: 3}
   - {fileID: 21300000, guid: 38323e5ce16e5bc429cbd53ba9d4ed2d, type: 3}
   - {fileID: 21300000, guid: 1814156c0fd31bc4fbb6dd82615533ab, type: 3}
   - {fileID: 21300000, guid: 98e680cc45325aa4b81583c2c64c8bd4, type: 3}
-  - {fileID: 21300000, guid: d8eb46cdabc272944ab6f00f893c5503, type: 3}
+  - {fileID: 21300000, guid: 737da20dc4e13d7449ccdfa638e6b563, type: 3}
   - {fileID: 21300000, guid: efea10ed322ec3d4e89e939a4e5df9ca, type: 3}
   - {fileID: 21300000, guid: 119a7f2e6f07d034aaec25adf9561897, type: 3}
+  - {fileID: 21300000, guid: 0d099f3fa399bcb43a05517d5336f873, type: 3}
   - {fileID: 21300000, guid: d12cadaf93c250148a1129d18c6cf83d, type: 3}
   m_PackedSpriteNamesToIndex:
   - star1 (1)
@@ -115,14 +119,16 @@ SpriteAtlas:
   - 2814
   - sk2
   - photo_2024-02-28_07-55-36
+  - 3162
   - sk
   - 4324414114
   - photo_2024-02-28_07-55-38
   - 2205_w026_n002_1983b_p1_1983
   - sqrafr9ffb7idpdl257avlbgf1-92245fd9d4f1a7ef533bf428b54dec89
-  - background
+  - 3155
   - 2303.w030.n003.647B.p1.647
   - exitcavern
+  - 3161
   - stickyplatform
   m_RenderDataMap: {}
   m_Tag: pnggame

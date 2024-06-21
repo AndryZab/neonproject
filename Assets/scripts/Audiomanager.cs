@@ -19,6 +19,7 @@ public class Audiomanager : MonoBehaviour
     public AudioClip finish;
     public AudioClip death;
     public AudioClip starreward;
+    public AudioClip buttonlaser;
 
     public void Start()
     {

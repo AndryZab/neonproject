@@ -20,10 +20,11 @@ public class volumemeneger : MonoBehaviour
             SetSFXVolume();
         }
     }
+
     public void SetMusisVolume()
     {
         float volume = musicslider.value;
-        myMixer.SetFloat("music", Mathf.Log10(volume)*20);
+        myMixer.SetFloat("music", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat("musicVolume", volume);
         PlayerPrefs.Save();
     }
@@ -32,33 +33,40 @@ public class volumemeneger : MonoBehaviour
     {
         float volume = musicSFXslider.value;
         myMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
-        float volume1 = musicSFXslider.value;
-        myMixer.SetFloat("effect", Mathf.Log10(volume1) * 20);
-        float volume2 = musicSFXslider.value;
-        myMixer.SetFloat("laser", Mathf.Log10(volume2) * 59);
-        float volume3 = musicSFXslider.value;
-        myMixer.SetFloat("shield", Mathf.Log10(volume2) * 35);
+        myMixer.SetFloat("effect", Mathf.Log10(volume) * 20);
+
+        
+        float laserVolume = Mathf.Log10(volume) * 20;  
+        laserVolume = Mathf.Clamp(laserVolume, -80, -8); 
+        myMixer.SetFloat("laser", laserVolume);
+
+        float laserFollow = Mathf.Log10(volume) * 20;
+        laserFollow = Mathf.Clamp(laserFollow, -80, -8);
+        myMixer.SetFloat("laserfollow", laserFollow);
+
+        float laserGun = Mathf.Log10(volume) * 20;  
+        laserGun = Mathf.Clamp(laserGun, -80, -19); 
+        myMixer.SetFloat("lasergun", laserGun);
+
+        float shield = Mathf.Log10(volume) * 20;  
+        shield = Mathf.Clamp(shield, -80, -9); 
+        myMixer.SetFloat("shield", shield);
+
         PlayerPrefs.SetFloat("SFXVolume", volume);
-        PlayerPrefs.SetFloat("effectVolume", volume1);
-        PlayerPrefs.SetFloat("laserVolume", volume2);
-        PlayerPrefs.SetFloat("shieldVolume", volume3);
-        PlayerPrefs.Save(); 
-
+        PlayerPrefs.SetFloat("lasergunvolume", laserGun);
+        PlayerPrefs.SetFloat("effectVolume", volume);
+        PlayerPrefs.SetFloat("laserVolume", laserVolume);
+        PlayerPrefs.SetFloat("laserFollow", laserFollow);
+        PlayerPrefs.SetFloat("shieldVolume", shield);
+        PlayerPrefs.Save();
     }
- 
-
 
     private void LoadVolume()
     {
         musicslider.value = PlayerPrefs.GetFloat("musicVolume");
         musicSFXslider.value = PlayerPrefs.GetFloat("SFXVolume");
-        musicSFXslider.value = PlayerPrefs.GetFloat("effectVolume");
-        musicSFXslider.value = PlayerPrefs.GetFloat("laserVolume");
-        musicSFXslider.value = PlayerPrefs.GetFloat("shieldVolume");
 
         SetMusisVolume();
         SetSFXVolume();
-        
-
     }
 }

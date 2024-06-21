@@ -12,7 +12,7 @@ public class movingplatform : MonoBehaviour
     [SerializeField] private float sawObjectsSpeed = 5.5f;
     [SerializeField] private float speed = 4.3f;
     private int currentWaypointIndex = 0;
-    private void Update()
+    private void FixedUpdate()
     {
         if (Vector2.Distance(waypoints[currentWaypointIndex].transform.position, transform.position) < .1f)
         {

@@ -4,10 +4,10 @@ using System.Collections;
 public class laserhit : MonoBehaviour
 {
     public LayerMask raycastLayerMask;
-    public PlayerDeath PlayerDeathScript;
+    private PlayerDeath PlayerDeathScript;
     [SerializeField] private float DefDistanceRay = 100;
     public Transform laserfirepoint;
-    public LineRenderer m_lineRenderer;
+    private LineRenderer m_lineRenderer;
     Transform m_transform;
     private bool playerHit = false;
     public GameObject laserbutonON;
@@ -21,9 +21,14 @@ public class laserhit : MonoBehaviour
     public AudioSource shieldsound;
     private void Awake()
     {
+        if (shieldsound != null)
+        {
+           shieldsound.Pause();
+
+        }
         m_transform = GetComponent<Transform>();
-        
-        
+        m_lineRenderer = GetComponent<LineRenderer>();
+        PlayerDeathScript = FindAnyObjectByType<PlayerDeath>();
 
     }
 
@@ -83,16 +88,21 @@ public class laserhit : MonoBehaviour
             }
             else
             {
-                OnDisolve = false;
-
-                if (sparticleSystem != null)
+               if (OnDisolve)
                 {
-                  sparticleSystem.Stop();
+                   OnDisolve = false;
 
-                }
-                if (shieldsound != null)
-                {
-                    shieldsound.Pause();
+                   if (sparticleSystem != null)
+                   {
+                     sparticleSystem.Stop();
+
+                   }
+                   if (shieldsound != null && shieldsound.isPlaying)
+                   {
+                       shieldsound.Pause();
+                       Debug.Log("pause");
+                   }
+
                 }
             }
         }

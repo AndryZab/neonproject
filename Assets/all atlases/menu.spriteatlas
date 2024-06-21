@@ -111,6 +111,7 @@ SpriteAtlas:
     - 11eccf4b159774f4399d3b11d60d6fde: 21300000
     - 2ee4cc1cdd34bd340ba5e4511cdf2e9b: 21300000
     - f20a978c302cf814d8bbc3d97e17b08b: 21300000
+    - 7afcdabc16bcb3e4ba0b16ef66ea59ea: 21300000
     - bc7918dcbe60b4f4484fd10755ad80b1: 21300000
     - 2991a62deb2075242b094f94c5f42243: 21300000
     - 6fc4235e571d92742aa2502246de8554: 21300000
@@ -158,6 +159,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 11eccf4b159774f4399d3b11d60d6fde, type: 3}
   - {fileID: 21300000, guid: 2ee4cc1cdd34bd340ba5e4511cdf2e9b, type: 3}
   - {fileID: 21300000, guid: f20a978c302cf814d8bbc3d97e17b08b, type: 3}
+  - {fileID: 21300000, guid: 7afcdabc16bcb3e4ba0b16ef66ea59ea, type: 3}
   - {fileID: 21300000, guid: bc7918dcbe60b4f4484fd10755ad80b1, type: 3}
   - {fileID: 21300000, guid: 2991a62deb2075242b094f94c5f42243, type: 3}
   - {fileID: 21300000, guid: 6fc4235e571d92742aa2502246de8554, type: 3}
@@ -204,6 +206,7 @@ SpriteAtlas:
   - 3 (1)
   - boardshop
   - "\u0425"
+  - coinmattery
   - inventory changer
   - restart
   - settings

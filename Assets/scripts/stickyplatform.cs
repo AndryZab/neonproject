@@ -13,24 +13,18 @@ public class stickyplatform : MonoBehaviour
 
     private void Update()
     {
-        if (Vector2.Distance(waypoints[currentWaypointIndex].transform.position, transform.position) < .1f)
+        if (waypoints.Length != 0)
         {
-            currentWaypointIndex++;
-            if (currentWaypointIndex >= waypoints.Length)
-            {
-                currentWaypointIndex = 0;
-            }
+           if (Vector2.Distance(waypoints[currentWaypointIndex].transform.position, transform.position) < .1f)
+           {
+              currentWaypointIndex++;
+              if (currentWaypointIndex >= waypoints.Length)
+              {
+                  currentWaypointIndex = 0;
+              }
+           }
+            transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWaypointIndex].transform.position, Time.deltaTime * speed);
         }
-        transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWaypointIndex].transform.position, Time.deltaTime * speed);
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Time.timeScale = 0;
-        }
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            Time.timeScale = 1;
-        }
-
 
 
     }
